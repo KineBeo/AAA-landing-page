@@ -32,24 +32,24 @@ function PlayIcon() {
 
 function DashboardPreview() {
   return (
-    <div className="bg-white rounded-3xl shadow-2xl shadow-slate-200/80 p-5 relative z-10 border border-slate-100">
+    <div className="bg-white rounded-3xl shadow-2xl shadow-sand-200/80 p-5 relative z-10 border border-sand-200">
       {/* Header */}
-      <div className="flex items-center justify-between mb-5 pb-4 border-b border-slate-100">
+      <div className="flex items-center justify-between mb-5 pb-4 border-b border-sand-200">
         <div>
-          <p className="text-xs text-slate-400 font-medium">Good morning</p>
-          <p className="font-heading font-bold text-slate-900 text-sm">Sarah Chen, BA</p>
+          <p className="text-xs text-sand-500 font-medium">Good morning</p>
+          <p className="font-heading font-bold text-sand-900 text-sm">Sarah Chen, BA</p>
         </div>
-        <div className="w-9 h-9 rounded-full bg-gradient-to-br from-primary-500 to-violet-600 flex items-center justify-center text-white font-bold text-xs">
+        <div className="w-9 h-9 rounded-full bg-gradient-to-br from-primary-500 to-primary-800 flex items-center justify-center text-white font-bold text-xs">
           SC
         </div>
       </div>
 
       {/* Active Course */}
-      <div className="bg-gradient-to-r from-primary-50 to-violet-50 rounded-xl p-4 mb-4 border border-primary-100">
+      <div className="bg-gradient-to-r from-primary-50 to-sand-100 rounded-xl p-4 mb-4 border border-primary-100">
         <div className="flex items-start justify-between mb-2.5">
           <div>
             <p className="text-xs font-semibold text-primary-700 mb-0.5">In Progress</p>
-            <p className="font-heading font-bold text-slate-900 text-sm leading-tight">
+            <p className="font-heading font-bold text-sand-900 text-sm leading-tight">
               AI for Business Analysts
             </p>
           </div>
@@ -60,7 +60,7 @@ function DashboardPreview() {
         <div className="w-full bg-white rounded-full h-1.5 mb-2">
           <div className="bg-primary-600 h-1.5 rounded-full" style={{ width: "64%" }} />
         </div>
-        <p className="text-xs text-slate-500">Next: Automating Reports with GPT · 18 min</p>
+        <p className="text-xs text-sand-500">Next: Automating Reports with GPT · 18 min</p>
       </div>
 
       {/* Quick Stats */}
@@ -70,9 +70,9 @@ function DashboardPreview() {
           { label: "Hrs Learned", value: "24" },
           { label: "Certificate", value: "1" },
         ].map((stat) => (
-          <div key={stat.label} className="bg-slate-50 rounded-xl p-3 text-center">
-            <p className="font-heading font-bold text-slate-900 text-lg">{stat.value}</p>
-            <p className="text-xs text-slate-400">{stat.label}</p>
+          <div key={stat.label} className="bg-sand-100 rounded-xl p-3 text-center">
+            <p className="font-heading font-bold text-sand-900 text-lg">{stat.value}</p>
+            <p className="text-xs text-sand-500">{stat.label}</p>
           </div>
         ))}
       </div>
@@ -85,7 +85,7 @@ function DashboardPreview() {
         ].map((course) => (
           <div
             key={course.title}
-            className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-50 cursor-pointer transition-colors"
+            className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-sand-50 cursor-pointer transition-colors"
           >
             <div className={`w-8 h-8 ${course.icon} rounded-lg flex items-center justify-center flex-shrink-0`}>
               <svg className={`w-4 h-4 ${course.iconColor}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -93,11 +93,11 @@ function DashboardPreview() {
               </svg>
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-xs font-medium text-slate-800 truncate">{course.title}</p>
-              <p className="text-xs text-slate-400">{course.pct}% complete</p>
+              <p className="text-xs font-medium text-sand-800 truncate">{course.title}</p>
+              <p className="text-xs text-sand-500">{course.pct}% complete</p>
             </div>
-            <div className="w-12 bg-slate-100 rounded-full h-1">
-              <div className="bg-slate-400 h-1 rounded-full" style={{ width: `${course.pct}%` }} />
+            <div className="w-12 bg-sand-200 rounded-full h-1">
+              <div className="bg-sand-500 h-1 rounded-full" style={{ width: `${course.pct}%` }} />
             </div>
           </div>
         ))}
@@ -127,18 +127,18 @@ export default function Hero() {
           <div>
             {/* Badge */}
             <div className="inline-flex items-center gap-2 bg-primary-50 border border-primary-100 rounded-full px-4 py-1.5 mb-6">
-              <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+              <span className="w-2 h-2 bg-primary-500 rounded-full animate-pulse" />
               <span className="text-sm font-medium text-primary-700">
                 New cohort open — Limited seats
               </span>
             </div>
 
-            <h1 className="font-heading text-5xl lg:text-6xl font-bold text-slate-900 leading-[1.1] mb-5">
+            <h1 className="font-heading text-5xl lg:text-6xl font-bold text-sand-900 leading-[1.1] mb-5">
               Master AI Automation{" "}
               <span className="gradient-text">for BA, PM & HR</span>
             </h1>
 
-            <p className="text-lg text-slate-600 leading-relaxed mb-8 max-w-xl">
+            <p className="text-lg text-sand-600 leading-relaxed mb-8 max-w-xl">
               Stop doing manual work that AI can do in seconds. Join 10,000+
               professionals learning to automate, delegate, and deliver faster
               with practical AI workflows built for modern workplaces.
@@ -147,7 +147,7 @@ export default function Hero() {
             {/* CTA Buttons */}
             <div className="flex flex-wrap gap-4 mb-10">
               {isLoading ? (
-                <div className="h-12 w-48 bg-slate-200 rounded-xl animate-pulse" />
+                <div className="h-12 w-48 bg-sand-200 rounded-xl animate-pulse" />
               ) : member && isPaid ? (
                 <Link href="/dashboard" className="btn-accent text-base px-7 py-3.5">
                   Go to Dashboard
@@ -176,23 +176,23 @@ export default function Hero() {
             {/* Social Proof */}
             <div className="flex flex-wrap items-center gap-6">
               <div>
-                <p className="font-heading text-2xl font-bold text-slate-900">10,000+</p>
-                <p className="text-xs text-slate-500 mt-0.5">Professionals trained</p>
+                <p className="font-heading text-2xl font-bold text-sand-900">10,000+</p>
+                <p className="text-xs text-sand-500 mt-0.5">Professionals trained</p>
               </div>
-              <div className="w-px h-8 bg-slate-200" />
+              <div className="w-px h-8 bg-sand-200" />
               <div>
-                <p className="font-heading text-2xl font-bold text-slate-900">4.9</p>
+                <p className="font-heading text-2xl font-bold text-sand-900">4.9</p>
                 <div className="flex items-center gap-1 mt-0.5">
                   <div className="flex">
                     {[1, 2, 3, 4, 5].map((i) => <StarIcon key={i} />)}
                   </div>
-                  <span className="text-xs text-slate-400">rating</span>
+                  <span className="text-xs text-sand-400">rating</span>
                 </div>
               </div>
-              <div className="w-px h-8 bg-slate-200" />
+              <div className="w-px h-8 bg-sand-200" />
               <div>
-                <p className="font-heading text-2xl font-bold text-slate-900">40+</p>
-                <p className="text-xs text-slate-500 mt-0.5">Hrs of content</p>
+                <p className="font-heading text-2xl font-bold text-sand-900">40+</p>
+                <p className="text-xs text-sand-500 mt-0.5">Hrs of content</p>
               </div>
             </div>
           </div>
@@ -209,8 +209,8 @@ export default function Hero() {
                 </svg>
               </div>
               <div>
-                <p className="text-xs font-bold text-slate-800">Certificate Earned!</p>
-                <p className="text-xs text-slate-500">Prompt Engineering</p>
+                <p className="text-xs font-bold text-sand-800">Certificate Earned!</p>
+                <p className="text-xs text-sand-500">Prompt Engineering</p>
               </div>
             </div>
 
@@ -222,8 +222,8 @@ export default function Hero() {
                 </svg>
               </div>
               <div>
-                <p className="text-xs font-bold text-slate-800">342 members online</p>
-                <p className="text-xs text-slate-500">Live right now</p>
+                <p className="text-xs font-bold text-sand-800">342 members online</p>
+                <p className="text-xs text-sand-500">Live right now</p>
               </div>
             </div>
           </div>

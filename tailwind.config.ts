@@ -9,24 +9,40 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        heading: ["Poppins", "sans-serif"],
-        body: ["Inter", "sans-serif"],
+        heading: ["DM Sans", "sans-serif"],
+        body: ["DM Sans", "sans-serif"],
+        serif: ["Lora", "serif"],
       },
       colors: {
+        // Anthropic coral-orange — primary brand color
         primary: {
-          50: "#eff6ff",
-          100: "#dbeafe",
-          200: "#bfdbfe",
-          500: "#3B82F6",
-          600: "#2563EB",
-          700: "#1D4ED8",
-          800: "#1e40af",
-          900: "#1e3a8a",
+          50: "#fdf4f0",
+          100: "#fbe8df",
+          200: "#f6d0bf",
+          500: "#e8926d",
+          600: "#d97757",
+          700: "#c4623d",
+          800: "#a84e2f",
+          900: "#8b3a22",
         },
+        // Muted blue — accent
         accent: {
-          400: "#fb923c",
-          500: "#F97316",
-          600: "#EA580C",
+          400: "#7aadcc",
+          500: "#6a9bcc",
+          600: "#5789b8",
+        },
+        // Warm neutral palette (Anthropic sand tones)
+        sand: {
+          50: "#faf9f5",
+          100: "#f5f4ef",
+          200: "#e8e6dc",
+          300: "#d4d2c7",
+          400: "#c0bdb1",
+          500: "#b0aea5",
+          600: "#8a8880",
+          700: "#6b6960",
+          800: "#2a2a28",
+          900: "#141413",
         },
       },
       animation: {

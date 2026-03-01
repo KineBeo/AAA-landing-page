@@ -37,22 +37,22 @@ function FAQItem({ faq }: { faq: { q: string; a: string } }) {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="border border-slate-200 rounded-2xl overflow-hidden bg-white">
+    <div className="border border-sand-200 rounded-2xl overflow-hidden bg-white">
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between px-6 py-5 text-left cursor-pointer hover:bg-slate-50 transition-colors"
+        className="w-full flex items-center justify-between px-6 py-5 text-left cursor-pointer hover:bg-sand-50 transition-colors"
         aria-expanded={open}
       >
-        <span className="font-heading font-semibold text-slate-900 text-sm leading-snug pr-4">
+        <span className="font-heading font-semibold text-sand-900 text-sm leading-snug pr-4">
           {faq.q}
         </span>
         <span
-          className={`flex-shrink-0 w-7 h-7 rounded-full border-2 border-slate-200 flex items-center justify-center transition-all duration-200 ${
+          className={`flex-shrink-0 w-7 h-7 rounded-full border-2 border-sand-200 flex items-center justify-center transition-all duration-200 ${
             open ? "bg-primary-600 border-primary-600 rotate-45" : "bg-white"
           }`}
         >
           <svg
-            className={`w-3.5 h-3.5 ${open ? "text-white" : "text-slate-400"}`}
+            className={`w-3.5 h-3.5 ${open ? "text-white" : "text-sand-400"}`}
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -72,7 +72,7 @@ function FAQItem({ faq }: { faq: { q: string; a: string } }) {
           open ? "max-h-96" : "max-h-0"
         }`}
       >
-        <p className="px-6 pb-5 text-slate-600 text-sm leading-relaxed">{faq.a}</p>
+        <p className="px-6 pb-5 text-sand-600 text-sm leading-relaxed">{faq.a}</p>
       </div>
     </div>
   );
@@ -80,15 +80,15 @@ function FAQItem({ faq }: { faq: { q: string; a: string } }) {
 
 export default function FAQ() {
   return (
-    <section id="faq" className="py-24 px-4 bg-white">
+    <section id="faq" className="py-24 px-4 bg-sand-50">
       <div className="max-w-3xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
           <span className="section-badge bg-primary-50 text-primary-700">FAQ</span>
-          <h2 className="font-heading text-3xl lg:text-4xl font-bold text-slate-900">
+          <h2 className="font-heading text-3xl lg:text-4xl font-bold text-sand-900">
             Questions? We&apos;ve Got Answers.
           </h2>
-          <p className="text-slate-500 mt-3">
+          <p className="text-sand-500 mt-3">
             Can&apos;t find what you need?{" "}
             <a
               href="mailto:hello@aiworkacademy.com"

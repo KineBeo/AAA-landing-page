@@ -14,7 +14,7 @@ function PlayButtonOverlay({ onClick }: { onClick: () => void }) {
       aria-label="Play demo video"
     >
       {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-slate-900/20 to-slate-900/10 rounded-2xl" />
+      <div className="absolute inset-0 bg-gradient-to-t from-sand-900/60 via-sand-900/20 to-sand-900/10 rounded-2xl" />
 
       {/* Play button */}
       <div className="relative z-10 flex flex-col items-center gap-4">
@@ -33,7 +33,7 @@ function PlayButtonOverlay({ onClick }: { onClick: () => void }) {
       </div>
 
       {/* Thumbnail-like gradient BG */}
-      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary-800/80 to-violet-900/80" />
+      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-sand-900/85 to-primary-900/75" />
 
       {/* Decorative code lines for visual interest */}
       <div className="absolute inset-0 flex items-center justify-center opacity-10">
@@ -53,24 +53,24 @@ export default function DemoVideo() {
   const [playing, setPlaying] = useState(false);
 
   return (
-    <section id="demo" className="py-24 px-4 bg-slate-50">
+    <section id="demo" className="py-24 px-4 bg-sand-100">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-10">
           <span className="section-badge bg-primary-50 text-primary-700">
             See It In Action
           </span>
-          <h2 className="font-heading text-3xl lg:text-4xl font-bold text-slate-900 mb-3">
+          <h2 className="font-heading text-3xl lg:text-4xl font-bold text-sand-900 mb-3">
             Watch How We Automate a BA Report in 3 Minutes
           </h2>
-          <p className="text-slate-500 max-w-xl mx-auto">
+          <p className="text-sand-500 max-w-xl mx-auto">
             This is a real workflow our students learn in Week 1. Imagine doing
             this for your own documents every single week.
           </p>
         </div>
 
         {/* Video Container */}
-        <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-slate-300/60 border border-slate-200 bg-slate-900">
+        <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-sand-300/60 border border-sand-200 bg-sand-900">
           {playing ? (
             // Embedded YouTube player
             <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
@@ -113,8 +113,8 @@ export default function DemoVideo() {
             { label: "No coding needed", value: "100%" },
           ].map((stat) => (
             <div key={stat.label} className="text-center">
-              <p className="font-heading font-bold text-xl text-slate-900">{stat.value}</p>
-              <p className="text-sm text-slate-400 mt-0.5">{stat.label}</p>
+              <p className="font-heading font-bold text-xl text-sand-900">{stat.value}</p>
+              <p className="text-sm text-sand-500 mt-0.5">{stat.label}</p>
             </div>
           ))}
         </div>

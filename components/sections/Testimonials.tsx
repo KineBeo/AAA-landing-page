@@ -6,7 +6,7 @@ const TESTIMONIALS = [
     role: "Senior Business Analyst",
     company: "Telstra",
     initials: "PS",
-    gradient: "from-primary-500 to-blue-600",
+    gradient: "from-primary-500 to-primary-800",
     stars: 5,
   },
   {
@@ -56,7 +56,7 @@ export default function Testimonials() {
           <span className="section-badge bg-amber-50 text-amber-700">
             Student Results
           </span>
-          <h2 className="font-heading text-3xl lg:text-4xl font-bold text-slate-900 mb-3">
+          <h2 className="font-heading text-3xl lg:text-4xl font-bold text-sand-900 mb-3">
             Real Professionals. Real Time Saved.
           </h2>
           {/* Aggregate Rating */}
@@ -64,8 +64,8 @@ export default function Testimonials() {
             <div className="flex">
               {[1, 2, 3, 4, 5].map((i) => <StarFill key={i} />)}
             </div>
-            <span className="font-bold text-slate-900">4.9</span>
-            <span className="text-slate-400 text-sm">from 3,200+ reviews</span>
+            <span className="font-bold text-sand-900">4.9</span>
+            <span className="text-sand-400 text-sm">from 3,200+ reviews</span>
           </div>
         </div>
 
@@ -74,7 +74,7 @@ export default function Testimonials() {
           {TESTIMONIALS.map((t) => (
             <div
               key={t.name}
-              className="bg-white rounded-2xl border border-slate-100 p-6 hover:shadow-lg hover:border-slate-200 transition-all duration-300 flex flex-col"
+              className="bg-sand-50 rounded-2xl border border-sand-200 p-6 hover:shadow-lg hover:border-sand-300 transition-all duration-300 flex flex-col"
             >
               {/* Quote Icon */}
               <QuoteIcon />
@@ -87,22 +87,22 @@ export default function Testimonials() {
               </div>
 
               {/* Quote Text */}
-              <p className="text-slate-700 text-sm leading-relaxed flex-1 mb-5">
+              <p className="text-sand-700 text-sm leading-relaxed flex-1 mb-5">
                 &ldquo;{t.quote}&rdquo;
               </p>
 
               {/* Author */}
-              <div className="flex items-center gap-3 pt-5 border-t border-slate-100">
+              <div className="flex items-center gap-3 pt-5 border-t border-sand-200">
                 <div
                   className={`w-10 h-10 rounded-full bg-gradient-to-br ${t.gradient} flex items-center justify-center text-white font-bold text-sm flex-shrink-0`}
                 >
                   {t.initials}
                 </div>
                 <div>
-                  <p className="font-heading font-semibold text-slate-900 text-sm">
+                  <p className="font-heading font-semibold text-sand-900 text-sm">
                     {t.name}
                   </p>
-                  <p className="text-xs text-slate-400">
+                  <p className="text-xs text-sand-500">
                     {t.role} · {t.company}
                   </p>
                 </div>
@@ -113,12 +113,12 @@ export default function Testimonials() {
 
         {/* Trust Bar */}
         <div className="mt-14 text-center">
-          <p className="text-sm font-medium text-slate-400 uppercase tracking-widest mb-6">
+          <p className="text-sm font-medium text-sand-400 uppercase tracking-widest mb-6">
             Members work at
           </p>
           <div className="flex flex-wrap justify-center items-center gap-8 opacity-50">
             {["Telstra", "Revolut", "Shopify", "Careem", "Atlassian", "ANZ Bank"].map((co) => (
-              <span key={co} className="font-heading font-bold text-lg text-slate-500">
+              <span key={co} className="font-heading font-bold text-lg text-sand-600">
                 {co}
               </span>
             ))}

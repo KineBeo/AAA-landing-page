@@ -27,7 +27,7 @@ const COURSES: Course[] = [
     id: "ba",
     tag: "Business Analysts",
     tagColor: "bg-primary-50 text-primary-700",
-    gradient: "from-primary-500 to-primary-700",
+    gradient: "from-primary-600 to-primary-800",
     iconPath: "M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z",
     title: "AI for Business Analysts",
     description:
@@ -37,7 +37,7 @@ const COURSES: Course[] = [
     level: "Beginner–Intermediate",
     instructor: "Marcus Reid",
     initials: "MR",
-    avatarGradient: "from-primary-500 to-blue-600",
+    avatarGradient: "from-primary-500 to-primary-800",
     rating: 4.9,
     reviews: 1840,
     badge: "Bestseller",
@@ -135,13 +135,13 @@ function CourseCard({ course, onCTA }: { course: Course; onCTA: () => void }) {
           <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${course.tagColor}`}>
             {course.tag}
           </span>
-          <span className="text-xs text-slate-400">{course.level}</span>
+          <span className="text-xs text-sand-500">{course.level}</span>
         </div>
 
-        <h3 className="font-heading font-bold text-slate-900 mb-1.5 group-hover:text-primary-600 transition-colors leading-tight">
+        <h3 className="font-heading font-bold text-sand-900 mb-1.5 group-hover:text-primary-600 transition-colors leading-tight">
           {course.title}
         </h3>
-        <p className="text-slate-500 text-sm leading-relaxed mb-4 line-clamp-2">
+        <p className="text-sand-500 text-sm leading-relaxed mb-4 line-clamp-2">
           {course.description}
         </p>
 
@@ -150,17 +150,17 @@ function CourseCard({ course, onCTA }: { course: Course; onCTA: () => void }) {
           <div className={`w-6 h-6 rounded-full bg-gradient-to-br ${course.avatarGradient} flex items-center justify-center text-white text-xs font-bold`}>
             {course.initials}
           </div>
-          <span className="text-xs text-slate-500">{course.instructor}</span>
+          <span className="text-xs text-sand-500">{course.instructor}</span>
         </div>
 
         {/* Rating + CTA */}
-        <div className="flex items-center justify-between pt-4 border-t border-slate-100">
+        <div className="flex items-center justify-between pt-4 border-t border-sand-200">
           <div className="flex items-center gap-1">
             <div className="flex">
               {[1, 2, 3, 4, 5].map((i) => <StarFill key={i} />)}
             </div>
-            <span className="text-sm font-bold text-slate-800 ml-1">{course.rating}</span>
-            <span className="text-xs text-slate-400">
+            <span className="text-sm font-bold text-sand-800 ml-1">{course.rating}</span>
+            <span className="text-xs text-sand-400">
               ({course.reviews.toLocaleString()})
             </span>
           </div>
@@ -185,7 +185,7 @@ export default function CourseCards() {
   };
 
   return (
-    <section id="courses" className="py-24 px-4 bg-white">
+    <section id="courses" className="py-24 px-4 bg-sand-50">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
@@ -193,10 +193,10 @@ export default function CourseCards() {
             <span className="section-badge bg-accent-500/10 text-accent-600">
               Course Library
             </span>
-            <h2 className="font-heading text-3xl lg:text-4xl font-bold text-slate-900">
+            <h2 className="font-heading text-3xl lg:text-4xl font-bold text-sand-900">
               Courses Built for Your Role
             </h2>
-            <p className="text-slate-500 mt-2 max-w-lg">
+            <p className="text-sand-500 mt-2 max-w-lg">
               Every course is designed around real workflows — not abstract theory.
             </p>
           </div>
@@ -235,10 +235,10 @@ export default function CourseCards() {
           <div className="mt-12 text-center">
             <div className="inline-flex flex-col sm:flex-row items-center gap-4 bg-primary-50 border border-primary-100 rounded-2xl px-8 py-6">
               <div className="text-left">
-                <p className="font-heading font-bold text-slate-900">
+                <p className="font-heading font-bold text-sand-900">
                   All 4 courses included in Pro
                 </p>
-                <p className="text-sm text-slate-500">
+                <p className="text-sm text-sand-500">
                   Plus live sessions, certificates, and early access to new content.
                 </p>
               </div>

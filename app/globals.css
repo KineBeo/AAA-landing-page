@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=Lora:ital,wght@0,400;0,600;1,400&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -10,7 +10,7 @@
   }
 
   body {
-    @apply font-body text-slate-800 antialiased bg-white;
+    @apply font-body text-sand-900 antialiased bg-sand-50;
   }
 
   h1, h2, h3, h4, h5 {
@@ -32,22 +32,22 @@
 @layer components {
   .gradient-text {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%);
+    background-image: linear-gradient(135deg, #d97757 0%, #e8926d 50%, #c4623d 100%);
   }
 
   .glass-card {
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(250, 249, 245, 0.92);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(232, 230, 220, 0.8);
   }
 
   .hero-bg {
-    background: linear-gradient(135deg, #EFF6FF 0%, #F5F3FF 50%, #FFF7ED 100%);
+    background: linear-gradient(145deg, #faf9f5 0%, #f5f4ef 55%, #fdf0ea 100%);
   }
 
   .section-badge {
-    @apply inline-block text-sm font-semibold px-4 py-1.5 rounded-full mb-4;
+    @apply inline-block text-sm font-semibold px-4 py-1.5 rounded-full mb-4 tracking-wide;
   }
 
   .btn-primary {
@@ -57,21 +57,21 @@
   }
 
   .btn-accent {
-    @apply inline-flex items-center justify-center gap-2 bg-accent-500 hover:bg-accent-600
+    @apply inline-flex items-center justify-center gap-2 bg-primary-600 hover:bg-primary-700
            text-white font-semibold px-6 py-3 rounded-xl transition-colors duration-200
-           cursor-pointer focus:outline-none focus:ring-2 focus:ring-accent-500 focus:ring-offset-2
-           shadow-lg shadow-orange-200;
+           cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2
+           shadow-lg shadow-primary-200;
   }
 
   .btn-outline {
-    @apply inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-50
-           text-slate-800 font-semibold px-6 py-3 rounded-xl border border-slate-200
+    @apply inline-flex items-center justify-center gap-2 bg-sand-50 hover:bg-sand-100
+           text-sand-900 font-semibold px-6 py-3 rounded-xl border border-sand-200
            transition-colors duration-200 cursor-pointer
-           focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2;
+           focus:outline-none focus:ring-2 focus:ring-sand-400 focus:ring-offset-2;
   }
 
   .card {
-    @apply bg-white rounded-2xl border border-slate-100 hover:border-slate-200
+    @apply bg-white rounded-2xl border border-sand-200 hover:border-sand-300
            hover:shadow-lg transition-all duration-300;
   }
 }
@@ -89,5 +89,5 @@
 
 /* Floating nav scroll behavior */
 .nav-scrolled {
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 24px rgba(20, 20, 19, 0.08);
 }

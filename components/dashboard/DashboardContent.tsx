@@ -29,9 +29,9 @@ const COURSES: Course[] = [
     title: "AI for Business Analysts",
     tag: "BA",
     tagColor: "bg-primary-100 text-primary-700",
-    gradient: "from-primary-500 to-blue-600",
+    gradient: "from-primary-600 to-primary-800",
     initials: "MR",
-    avatarGrad: "from-primary-500 to-blue-600",
+    avatarGrad: "from-primary-600 to-primary-800",
     instructor: "Marcus Reid",
     progress: 64,
     totalLessons: 32,
@@ -121,15 +121,15 @@ function Sidebar({
   const email = member?.auth?.email ?? "";
 
   return (
-    <aside className="w-72 flex-shrink-0 bg-white border-r border-slate-100 flex flex-col h-full overflow-y-auto">
+    <aside className="w-72 flex-shrink-0 bg-white border-r border-sand-200 flex flex-col h-full overflow-y-auto">
       {/* User Profile */}
-      <div className="px-5 py-5 border-b border-slate-100">
+      <div className="px-5 py-5 border-b border-sand-200">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-full bg-gradient-to-br from-primary-500 to-violet-600 flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
+          <div className="w-9 h-9 rounded-full bg-gradient-to-br from-primary-500 to-primary-800 flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
             {email ? email[0].toUpperCase() : "M"}
           </div>
           <div className="min-w-0">
-            <p className="font-heading font-semibold text-slate-900 text-sm truncate">
+            <p className="font-heading font-semibold text-sand-900 text-sm truncate">
               {email || "Member"}
             </p>
             <p className="text-xs text-green-600 font-medium">Pro Member</p>
@@ -139,7 +139,7 @@ function Sidebar({
 
       {/* Navigation */}
       <nav className="px-3 py-4 flex-1">
-        <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider px-2 mb-2">
+        <p className="text-xs font-semibold text-sand-400 uppercase tracking-wider px-2 mb-2">
           My Courses
         </p>
         {courses.map((course) => (
@@ -149,7 +149,7 @@ function Sidebar({
             className={`w-full text-left px-3 py-3 rounded-xl mb-1 cursor-pointer transition-colors group ${
               activeCourseId === course.id
                 ? "bg-primary-50 border border-primary-100"
-                : "hover:bg-slate-50"
+                : "hover:bg-sand-50"
             }`}
           >
             <div className="flex items-center gap-2.5">
@@ -161,19 +161,19 @@ function Sidebar({
               <div className="min-w-0 flex-1">
                 <p
                   className={`text-xs font-semibold truncate leading-tight ${
-                    activeCourseId === course.id ? "text-primary-700" : "text-slate-800"
+                    activeCourseId === course.id ? "text-primary-700" : "text-sand-800"
                   }`}
                 >
                   {course.title}
                 </p>
                 <div className="flex items-center gap-1.5 mt-1">
-                  <div className="flex-1 h-1 bg-slate-100 rounded-full">
+                  <div className="flex-1 h-1 bg-sand-200 rounded-full">
                     <div
                       className="bg-primary-500 h-1 rounded-full transition-all"
                       style={{ width: `${course.progress}%` }}
                     />
                   </div>
-                  <span className="text-xs text-slate-400 flex-shrink-0">{course.progress}%</span>
+                  <span className="text-xs text-sand-400 flex-shrink-0">{course.progress}%</span>
                 </div>
               </div>
             </div>
@@ -182,10 +182,10 @@ function Sidebar({
       </nav>
 
       {/* Bottom Links */}
-      <div className="px-3 pb-4 border-t border-slate-100 pt-3">
+      <div className="px-3 pb-4 border-t border-sand-200 pt-3">
         <Link
           href="/"
-          className="flex items-center gap-2.5 px-3 py-2.5 rounded-xl hover:bg-slate-50 transition-colors cursor-pointer text-slate-500 hover:text-slate-700 text-sm"
+          className="flex items-center gap-2.5 px-3 py-2.5 rounded-xl hover:bg-sand-50 transition-colors cursor-pointer text-sand-500 hover:text-sand-800 text-sm"
         >
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
@@ -194,7 +194,7 @@ function Sidebar({
         </Link>
         <button
           onClick={logout}
-          className="w-full flex items-center gap-2.5 px-3 py-2.5 rounded-xl hover:bg-red-50 transition-colors cursor-pointer text-slate-400 hover:text-red-600 text-sm"
+          className="w-full flex items-center gap-2.5 px-3 py-2.5 rounded-xl hover:bg-red-50 transition-colors cursor-pointer text-sand-400 hover:text-red-600 text-sm"
         >
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
@@ -217,7 +217,7 @@ function VideoPlayer({ course }: { course: Course }) {
       {/* Main Player */}
       <div className="flex-1 min-w-0">
         {/* YouTube Embed */}
-        <div className="relative bg-slate-900 rounded-2xl overflow-hidden mb-4 shadow-lg" style={{ paddingBottom: "56.25%" }}>
+        <div className="relative bg-sand-900 rounded-2xl overflow-hidden mb-4 shadow-lg" style={{ paddingBottom: "56.25%" }}>
           <iframe
             key={`${course.id}-${activeLesson}`}
             className="absolute inset-0 w-full h-full"
@@ -231,10 +231,10 @@ function VideoPlayer({ course }: { course: Course }) {
         {/* Lesson Info */}
         <div className="flex items-start justify-between gap-4">
           <div>
-            <h2 className="font-heading font-bold text-slate-900 text-lg leading-tight mb-1">
+            <h2 className="font-heading font-bold text-sand-900 text-lg leading-tight mb-1">
               {currentLesson.title}
             </h2>
-            <div className="flex items-center gap-3 text-sm text-slate-400">
+            <div className="flex items-center gap-3 text-sm text-sand-400">
               <div className={`w-5 h-5 rounded-full bg-gradient-to-br ${course.avatarGrad} flex items-center justify-center text-white text-xs font-bold`}>
                 {course.initials[0]}
               </div>
@@ -249,20 +249,20 @@ function VideoPlayer({ course }: { course: Course }) {
             <button
               onClick={() => setActiveLesson((i) => Math.max(0, i - 1))}
               disabled={activeLesson === 0}
-              className="p-2 rounded-lg border border-slate-200 hover:bg-slate-50 disabled:opacity-40 disabled:cursor-default cursor-pointer transition-colors"
+              className="p-2 rounded-lg border border-sand-200 hover:bg-sand-50 disabled:opacity-40 disabled:cursor-default cursor-pointer transition-colors"
               aria-label="Previous lesson"
             >
-              <svg className="w-4 h-4 text-slate-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="w-4 h-4 text-sand-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
             </button>
             <button
               onClick={() => setActiveLesson((i) => Math.min(course.lessons.length - 1, i + 1))}
               disabled={activeLesson === course.lessons.length - 1}
-              className="p-2 rounded-lg border border-slate-200 hover:bg-slate-50 disabled:opacity-40 disabled:cursor-default cursor-pointer transition-colors"
+              className="p-2 rounded-lg border border-sand-200 hover:bg-sand-50 disabled:opacity-40 disabled:cursor-default cursor-pointer transition-colors"
               aria-label="Next lesson"
             >
-              <svg className="w-4 h-4 text-slate-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="w-4 h-4 text-sand-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </button>
@@ -272,7 +272,7 @@ function VideoPlayer({ course }: { course: Course }) {
         {/* Progress Bar */}
         <div className="mt-5 p-4 bg-primary-50 rounded-xl border border-primary-100">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-sm font-semibold text-slate-800">{course.title}</span>
+            <span className="text-sm font-semibold text-sand-800">{course.title}</span>
             <span className="text-xs font-bold text-primary-600">
               {course.completedLessons}/{course.totalLessons} lessons
             </span>
@@ -283,13 +283,13 @@ function VideoPlayer({ course }: { course: Course }) {
               style={{ width: `${course.progress}%` }}
             />
           </div>
-          <p className="text-xs text-slate-400 mt-1.5">{course.progress}% complete</p>
+          <p className="text-xs text-sand-400 mt-1.5">{course.progress}% complete</p>
         </div>
       </div>
 
       {/* Lesson List */}
       <div className="w-full lg:w-72 flex-shrink-0">
-        <h3 className="font-heading font-bold text-slate-900 mb-3 text-sm">
+        <h3 className="font-heading font-bold text-sand-900 mb-3 text-sm">
           Course Lessons
         </h3>
         <div className="space-y-1.5 overflow-y-auto max-h-[500px]">
@@ -300,7 +300,7 @@ function VideoPlayer({ course }: { course: Course }) {
               className={`w-full text-left flex items-center gap-3 p-3 rounded-xl cursor-pointer transition-colors ${
                 activeLesson === i
                   ? "bg-primary-50 border border-primary-100"
-                  : "hover:bg-slate-50"
+                  : "hover:bg-sand-50"
               }`}
             >
               {/* Status Icon */}
@@ -310,7 +310,7 @@ function VideoPlayer({ course }: { course: Course }) {
                     ? "bg-green-500"
                     : activeLesson === i
                     ? "bg-primary-600"
-                    : "border-2 border-slate-200"
+                    : "border-2 border-sand-200"
                 }`}
               >
                 {lesson.done ? (
@@ -322,18 +322,18 @@ function VideoPlayer({ course }: { course: Course }) {
                     <path d="M8 5v14l11-7z" />
                   </svg>
                 ) : (
-                  <span className="text-xs text-slate-400 font-medium">{i + 1}</span>
+                  <span className="text-xs text-sand-400 font-medium">{i + 1}</span>
                 )}
               </div>
               <div className="min-w-0 flex-1">
                 <p
                   className={`text-xs font-medium truncate ${
-                    activeLesson === i ? "text-primary-700" : "text-slate-700"
+                    activeLesson === i ? "text-primary-700" : "text-sand-700"
                   }`}
                 >
                   {lesson.title}
                 </p>
-                <p className="text-xs text-slate-400">{lesson.duration}</p>
+                <p className="text-xs text-sand-400">{lesson.duration}</p>
               </div>
             </button>
           ))}
@@ -368,11 +368,11 @@ function StatsBar({ courses }: { courses: Course[] }) {
           label: "Avg. Progress",
           value: `${avgProgress}%`,
           icon: (
-            <svg className="w-5 h-5 text-violet-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="w-5 h-5 text-accent-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
             </svg>
           ),
-          bg: "bg-violet-50",
+          bg: "bg-accent-500/10",
         },
         {
           label: "Certificates",
@@ -385,13 +385,13 @@ function StatsBar({ courses }: { courses: Course[] }) {
           bg: "bg-amber-50",
         },
       ].map((s) => (
-        <div key={s.label} className="bg-white rounded-2xl border border-slate-100 p-4 flex items-center gap-3">
+        <div key={s.label} className="bg-white rounded-2xl border border-sand-200 p-4 flex items-center gap-3">
           <div className={`w-10 h-10 ${s.bg} rounded-xl flex items-center justify-center flex-shrink-0`}>
             {s.icon}
           </div>
           <div>
-            <p className="font-heading font-bold text-slate-900 text-xl">{s.value}</p>
-            <p className="text-xs text-slate-400">{s.label}</p>
+            <p className="font-heading font-bold text-sand-900 text-xl">{s.value}</p>
+            <p className="text-xs text-sand-400">{s.label}</p>
           </div>
         </div>
       ))}
@@ -407,11 +407,11 @@ export default function DashboardContent() {
   const activeCourse = COURSES.find((c) => c.id === activeCourseId) ?? COURSES[0];
 
   return (
-    <div className="flex h-screen pt-20 bg-slate-50 overflow-hidden">
+    <div className="flex h-screen pt-20 bg-sand-50 overflow-hidden">
       {/* Mobile Sidebar Overlay */}
       {sidebarOpen && (
         <div
-          className="fixed inset-0 z-30 bg-slate-900/40 lg:hidden"
+          className="fixed inset-0 z-30 bg-sand-900/40 lg:hidden"
           onClick={() => setSidebarOpen(false)}
         />
       )}
@@ -436,21 +436,21 @@ export default function DashboardContent() {
           <div className="flex items-center gap-3 mb-5 lg:hidden">
             <button
               onClick={() => setSidebarOpen(true)}
-              className="p-2 rounded-xl bg-white border border-slate-200 cursor-pointer"
+              className="p-2 rounded-xl bg-white border border-sand-200 cursor-pointer"
               aria-label="Open sidebar"
             >
-              <svg className="w-5 h-5 text-slate-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="w-5 h-5 text-sand-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             </button>
-            <h1 className="font-heading font-bold text-slate-900">My Dashboard</h1>
+            <h1 className="font-heading font-bold text-sand-900">My Dashboard</h1>
           </div>
 
           {/* Stats */}
           <StatsBar courses={COURSES} />
 
           {/* Video Player */}
-          <div className="bg-white rounded-2xl border border-slate-100 p-5">
+          <div className="bg-white rounded-2xl border border-sand-200 p-5">
             <VideoPlayer course={activeCourse} />
           </div>
         </div>

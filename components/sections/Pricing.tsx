@@ -19,7 +19,7 @@ function CheckIcon({ className = "" }: { className?: string }) {
 
 function CrossIcon() {
   return (
-    <svg className="w-4 h-4 text-slate-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <svg className="w-4 h-4 text-sand-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
     </svg>
   );
@@ -62,28 +62,28 @@ export default function Pricing() {
   const annualPrice = Math.round(monthlyPrice * 12 * 0.7 / 12); // 30% off
 
   return (
-    <section id="pricing" className="py-24 px-4 bg-slate-50">
+    <section id="pricing" className="py-24 px-4 bg-sand-100">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-10">
           <span className="section-badge bg-primary-50 text-primary-700">
             Pricing
           </span>
-          <h2 className="font-heading text-3xl lg:text-4xl font-bold text-slate-900 mb-3">
+          <h2 className="font-heading text-3xl lg:text-4xl font-bold text-sand-900 mb-3">
             Invest Once. Save Hours Every Week.
           </h2>
-          <p className="text-slate-500 max-w-xl mx-auto mb-8">
+          <p className="text-sand-500 max-w-xl mx-auto mb-8">
             Start free. Upgrade when you&apos;re ready. No contracts, cancel anytime.
           </p>
 
           {/* Billing Toggle */}
-          <div className="inline-flex items-center gap-3 bg-white border border-slate-200 rounded-full p-1.5 shadow-sm">
+          <div className="inline-flex items-center gap-3 bg-white border border-sand-200 rounded-full p-1.5 shadow-sm">
             <button
               onClick={() => setAnnual(false)}
               className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200 cursor-pointer ${
                 !annual
                   ? "bg-primary-600 text-white shadow-sm"
-                  : "text-slate-500 hover:text-slate-700"
+                  : "text-sand-500 hover:text-sand-800"
               }`}
             >
               Monthly
@@ -93,7 +93,7 @@ export default function Pricing() {
               className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200 cursor-pointer flex items-center gap-2 ${
                 annual
                   ? "bg-primary-600 text-white shadow-sm"
-                  : "text-slate-500 hover:text-slate-700"
+                  : "text-sand-500 hover:text-sand-800"
               }`}
             >
               Annual
@@ -107,19 +107,19 @@ export default function Pricing() {
         {/* Plans Grid */}
         <div className="grid md:grid-cols-3 gap-6">
           {/* Free Plan */}
-          <div className="bg-white rounded-2xl border border-slate-200 p-7">
+          <div className="bg-white rounded-2xl border border-sand-200 p-7">
             <div className="mb-6">
-              <p className="text-slate-400 text-sm font-medium mb-1">Starter</p>
-              <p className="font-heading text-4xl font-bold text-slate-900 mb-1">Free</p>
-              <p className="text-slate-400 text-sm">No credit card needed</p>
+              <p className="text-sand-400 text-sm font-medium mb-1">Starter</p>
+              <p className="font-heading text-4xl font-bold text-sand-900 mb-1">Free</p>
+              <p className="text-sand-400 text-sm">No credit card needed</p>
             </div>
 
             <button
               onClick={member ? undefined : openSignup}
               className={`w-full text-center font-semibold py-3 rounded-xl mb-6 transition-colors cursor-pointer text-sm ${
                 member
-                  ? "bg-slate-100 text-slate-400 cursor-default"
-                  : "bg-slate-100 hover:bg-slate-200 text-slate-800"
+                  ? "bg-sand-100 text-sand-400 cursor-default"
+                  : "bg-sand-100 hover:bg-sand-200 text-sand-800"
               }`}
             >
               {member ? "Current plan" : "Get Started Free"}
@@ -133,7 +133,7 @@ export default function Pricing() {
                   ) : (
                     <CrossIcon />
                   )}
-                  <span className={f.included ? "text-slate-700" : "text-slate-400"}>
+                  <span className={f.included ? "text-sand-700" : "text-sand-400"}>
                     {f.label}
                   </span>
                 </li>
@@ -144,7 +144,7 @@ export default function Pricing() {
           {/* Pro Plan — Featured */}
           <div className="bg-primary-600 rounded-2xl p-7 relative shadow-xl shadow-primary-200">
             <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-              <span className="bg-accent-500 text-white text-xs font-bold px-4 py-1.5 rounded-full whitespace-nowrap shadow">
+              <span className="bg-sand-900 text-white text-xs font-bold px-4 py-1.5 rounded-full whitespace-nowrap shadow">
                 Most Popular
               </span>
             </div>
@@ -155,9 +155,9 @@ export default function Pricing() {
                 <span className="font-heading text-4xl font-bold text-white">
                   ${annual ? annualPrice : monthlyPrice}
                 </span>
-                <span className="text-primary-300 text-sm">/month</span>
+                <span className="text-primary-200 text-sm">/month</span>
               </div>
-              <p className="text-primary-300 text-sm">
+              <p className="text-primary-200 text-sm">
                 {annual
                   ? `Billed $${annual ? annualPrice * 12 : monthlyPrice * 12}/yr — save $${monthlyPrice * 12 - annualPrice * 12}`
                   : "Billed monthly"}
@@ -167,14 +167,14 @@ export default function Pricing() {
             {member && isPaid ? (
               <Link
                 href="/dashboard"
-                className="block text-center bg-white text-primary-600 font-bold py-3 rounded-xl mb-6 hover:bg-slate-50 transition-colors cursor-pointer text-sm"
+                className="block text-center bg-white text-primary-600 font-bold py-3 rounded-xl mb-6 hover:bg-sand-50 transition-colors cursor-pointer text-sm"
               >
                 Go to Dashboard
               </Link>
             ) : (
               <button
                 onClick={member ? openLogin : openSignup}
-                className="w-full text-center bg-white text-primary-600 font-bold py-3 rounded-xl mb-6 hover:bg-slate-50 transition-colors cursor-pointer text-sm"
+                className="w-full text-center bg-white text-primary-600 font-bold py-3 rounded-xl mb-6 hover:bg-sand-50 transition-colors cursor-pointer text-sm"
               >
                 {member ? "Upgrade to Pro" : "Start Free Trial"}
               </button>
@@ -191,16 +191,16 @@ export default function Pricing() {
           </div>
 
           {/* Team Plan */}
-          <div className="bg-white rounded-2xl border border-slate-200 p-7">
+          <div className="bg-white rounded-2xl border border-sand-200 p-7">
             <div className="mb-6">
-              <p className="text-slate-400 text-sm font-medium mb-1">Team</p>
-              <p className="font-heading text-4xl font-bold text-slate-900 mb-1">Custom</p>
-              <p className="text-slate-400 text-sm">For teams of 5+</p>
+              <p className="text-sand-400 text-sm font-medium mb-1">Team</p>
+              <p className="font-heading text-4xl font-bold text-sand-900 mb-1">Custom</p>
+              <p className="text-sand-400 text-sm">For teams of 5+</p>
             </div>
 
             <a
               href="mailto:hello@aiworkacademy.com?subject=Team Plan Inquiry"
-              className="block text-center bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3 rounded-xl mb-6 transition-colors cursor-pointer text-sm"
+              className="block text-center bg-sand-900 hover:bg-sand-800 text-white font-semibold py-3 rounded-xl mb-6 transition-colors cursor-pointer text-sm"
             >
               Contact Sales
             </a>
@@ -209,7 +209,7 @@ export default function Pricing() {
               {TEAM_FEATURES.map((f) => (
                 <li key={f.label} className="flex items-start gap-3 text-sm">
                   <CheckIcon className="text-green-500 mt-0.5" />
-                  <span className="text-slate-700">{f.label}</span>
+                  <span className="text-sand-700">{f.label}</span>
                 </li>
               ))}
             </ul>
@@ -217,7 +217,7 @@ export default function Pricing() {
         </div>
 
         {/* Guarantee */}
-        <div className="flex items-center justify-center gap-2.5 mt-8 text-sm text-slate-500">
+        <div className="flex items-center justify-center gap-2.5 mt-8 text-sm text-sand-500">
           <svg className="w-5 h-5 text-green-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
           </svg>
