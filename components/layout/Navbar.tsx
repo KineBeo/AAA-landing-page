@@ -102,7 +102,7 @@ export default function Navbar() {
           >
             Log in
           </a>
-          <a href={`${LMS_URL}/signup`} className="btn-primary text-sm px-5 py-2.5">
+          <a href={`${LMS_URL}/login`} className="btn-primary text-sm px-5 py-2.5">
             Join Free Session
           </a>
         </div>
@@ -142,7 +142,7 @@ export default function Navbar() {
               Log in
             </a>
             <a
-              href={`${LMS_URL}/signup`}
+              href={`${LMS_URL}/login`}
               onClick={closeMobile}
               className="btn-primary text-sm py-2.5 text-center"
             >

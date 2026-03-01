@@ -143,7 +143,7 @@ export default function Hero() {
 
             {/* CTA Buttons */}
             <div className="flex flex-wrap gap-4 mb-10">
-              <a href={`${LMS_URL}/signup`} className="btn-accent text-base px-7 py-3.5">
+              <a href={`${LMS_URL}/login`} className="btn-accent text-base px-7 py-3.5">
                 Join Free Session
                 <ArrowRight />
               </a>
