@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
-import { useMemberstack } from "@/components/providers/MemberstackProvider";
+
+const LMS_URL = process.env.NEXT_PUBLIC_LMS_URL ?? "#";
 
 function CheckIcon({ className = "" }: { className?: string }) {
   return (
@@ -56,10 +56,9 @@ const TEAM_FEATURES = [
 
 export default function Pricing() {
   const [annual, setAnnual] = useState(false);
-  const { member, isPaid, openLogin, openSignup } = useMemberstack();
 
   const monthlyPrice = 29;
-  const annualPrice = Math.round(monthlyPrice * 12 * 0.7 / 12); // 30% off
+  const annualPrice = Math.round((monthlyPrice * 12 * 0.7) / 12); // 30% off
 
   return (
     <section id="pricing" className="py-24 px-4 bg-sand-100">
@@ -114,16 +113,12 @@ export default function Pricing() {
               <p className="text-sand-400 text-sm">No credit card needed</p>
             </div>
 
-            <button
-              onClick={member ? undefined : openSignup}
-              className={`w-full text-center font-semibold py-3 rounded-xl mb-6 transition-colors cursor-pointer text-sm ${
-                member
-                  ? "bg-sand-100 text-sand-400 cursor-default"
-                  : "bg-sand-100 hover:bg-sand-200 text-sand-800"
-              }`}
+            <a
+              href={`${LMS_URL}/signup`}
+              className="block w-full text-center font-semibold py-3 rounded-xl mb-6 transition-colors cursor-pointer text-sm bg-sand-100 hover:bg-sand-200 text-sand-800"
             >
-              {member ? "Current plan" : "Get Started Free"}
-            </button>
+              Get Started Free
+            </a>
 
             <ul className="space-y-3">
               {FREE_FEATURES.map((f) => (
@@ -159,26 +154,17 @@ export default function Pricing() {
               </div>
               <p className="text-primary-200 text-sm">
                 {annual
-                  ? `Billed $${annual ? annualPrice * 12 : monthlyPrice * 12}/yr — save $${monthlyPrice * 12 - annualPrice * 12}`
+                  ? `Billed $${annualPrice * 12}/yr — save $${monthlyPrice * 12 - annualPrice * 12}`
                   : "Billed monthly"}
               </p>
             </div>
 
-            {member && isPaid ? (
-              <Link
-                href="/dashboard"
-                className="block text-center bg-white text-primary-600 font-bold py-3 rounded-xl mb-6 hover:bg-sand-50 transition-colors cursor-pointer text-sm"
-              >
-                Go to Dashboard
-              </Link>
-            ) : (
-              <button
-                onClick={member ? openLogin : openSignup}
-                className="w-full text-center bg-white text-primary-600 font-bold py-3 rounded-xl mb-6 hover:bg-sand-50 transition-colors cursor-pointer text-sm"
-              >
-                {member ? "Upgrade to Pro" : "Start Free Trial"}
-              </button>
-            )}
+            <a
+              href={`${LMS_URL}/signup?plan=pro${annual ? "&billing=annual" : ""}`}
+              className="block text-center bg-white text-primary-600 font-bold py-3 rounded-xl mb-6 hover:bg-sand-50 transition-colors cursor-pointer text-sm"
+            >
+              Start Free Trial
+            </a>
 
             <ul className="space-y-3">
               {PRO_FEATURES.map((f) => (

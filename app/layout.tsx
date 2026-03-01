@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { MemberstackProvider } from "@/components/providers/MemberstackProvider";
 
 export const metadata: Metadata = {
   title: "AI Work Academy — Master AI Automation for BA, PM & HR",
@@ -30,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <MemberstackProvider>{children}</MemberstackProvider>
+        {children}
       </body>
     </html>
   );

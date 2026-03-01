@@ -1,7 +1,6 @@
 "use client";
 
-import { useMemberstack } from "@/components/providers/MemberstackProvider";
-import Link from "next/link";
+const LMS_URL = process.env.NEXT_PUBLIC_LMS_URL ?? "#";
 
 type Course = {
   id: string;
@@ -108,9 +107,12 @@ function StarFill() {
   );
 }
 
-function CourseCard({ course, onCTA }: { course: Course; onCTA: () => void }) {
+function CourseCard({ course }: { course: Course }) {
   return (
-    <div className="card overflow-hidden group cursor-pointer" onClick={onCTA}>
+    <a
+      href={`${LMS_URL}/courses/${course.id}`}
+      className="card overflow-hidden group cursor-pointer block"
+    >
       {/* Card Header */}
       <div className={`h-44 bg-gradient-to-br ${course.gradient} relative flex items-center justify-center overflow-hidden`}>
         <svg className="w-20 h-20 text-white/20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -169,21 +171,11 @@ function CourseCard({ course, onCTA }: { course: Course; onCTA: () => void }) {
           </span>
         </div>
       </div>
-    </div>
+    </a>
   );
 }
 
 export default function CourseCards() {
-  const { member, isPaid, openSignup } = useMemberstack();
-
-  const handleCTA = () => {
-    if (member && isPaid) {
-      window.location.href = "/dashboard";
-    } else {
-      openSignup();
-    }
-  };
-
   return (
     <section id="courses" className="py-24 px-4 bg-sand-50">
       <div className="max-w-7xl mx-auto">
@@ -200,57 +192,40 @@ export default function CourseCards() {
               Every course is designed around real workflows — not abstract theory.
             </p>
           </div>
-          {member && isPaid ? (
-            <Link
-              href="/dashboard"
-              className="text-sm font-semibold text-primary-600 hover:text-primary-700 flex items-center gap-1 cursor-pointer flex-shrink-0"
-            >
-              View all in dashboard
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </Link>
-          ) : (
-            <button
-              onClick={openSignup}
-              className="text-sm font-semibold text-primary-600 hover:text-primary-700 flex items-center gap-1 cursor-pointer flex-shrink-0"
-            >
-              View all courses
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
-          )}
+          <a
+            href={`${LMS_URL}/courses`}
+            className="text-sm font-semibold text-primary-600 hover:text-primary-700 flex items-center gap-1 cursor-pointer flex-shrink-0"
+          >
+            View all courses
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
         </div>
 
         {/* Course Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
           {COURSES.map((course) => (
-            <CourseCard key={course.id} course={course} onCTA={handleCTA} />
+            <CourseCard key={course.id} course={course} />
           ))}
         </div>
 
         {/* Bottom CTA */}
-        {!isPaid && (
-          <div className="mt-12 text-center">
-            <div className="inline-flex flex-col sm:flex-row items-center gap-4 bg-primary-50 border border-primary-100 rounded-2xl px-8 py-6">
-              <div className="text-left">
-                <p className="font-heading font-bold text-sand-900">
-                  All 4 courses included in Pro
-                </p>
-                <p className="text-sm text-sand-500">
-                  Plus live sessions, certificates, and early access to new content.
-                </p>
-              </div>
-              <button
-                onClick={openSignup}
-                className="btn-accent flex-shrink-0"
-              >
-                Get Full Access
-              </button>
+        <div className="mt-12 text-center">
+          <div className="inline-flex flex-col sm:flex-row items-center gap-4 bg-primary-50 border border-primary-100 rounded-2xl px-8 py-6">
+            <div className="text-left">
+              <p className="font-heading font-bold text-sand-900">
+                All 4 courses included in Pro
+              </p>
+              <p className="text-sm text-sand-500">
+                Plus live sessions, certificates, and early access to new content.
+              </p>
             </div>
+            <a href={`${LMS_URL}/signup?plan=pro`} className="btn-accent flex-shrink-0">
+              Get Full Access
+            </a>
           </div>
-        )}
+        </div>
       </div>
     </section>
   );

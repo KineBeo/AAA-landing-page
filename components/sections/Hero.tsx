@@ -1,7 +1,6 @@
 "use client";
 
-import Link from "next/link";
-import { useMemberstack } from "@/components/providers/MemberstackProvider";
+const LMS_URL = process.env.NEXT_PUBLIC_LMS_URL ?? "#";
 
 function StarIcon() {
   return (
@@ -109,8 +108,6 @@ function DashboardPreview() {
 // ─── Component ────────────────────────────────────────────────────────────────
 
 export default function Hero() {
-  const { member, isPaid, isLoading, openSignup } = useMemberstack();
-
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
@@ -146,31 +143,17 @@ export default function Hero() {
 
             {/* CTA Buttons */}
             <div className="flex flex-wrap gap-4 mb-10">
-              {isLoading ? (
-                <div className="h-12 w-48 bg-sand-200 rounded-xl animate-pulse" />
-              ) : member && isPaid ? (
-                <Link href="/dashboard" className="btn-accent text-base px-7 py-3.5">
-                  Go to Dashboard
-                  <ArrowRight />
-                </Link>
-              ) : (
-                <>
-                  <button
-                    onClick={openSignup}
-                    className="btn-accent text-base px-7 py-3.5"
-                  >
-                    Join Free Session
-                    <ArrowRight />
-                  </button>
-                  <button
-                    onClick={() => scrollTo("courses")}
-                    className="btn-outline text-base px-7 py-3.5"
-                  >
-                    <PlayIcon />
-                    View Courses
-                  </button>
-                </>
-              )}
+              <a href={`${LMS_URL}/signup`} className="btn-accent text-base px-7 py-3.5">
+                Join Free Session
+                <ArrowRight />
+              </a>
+              <button
+                onClick={() => scrollTo("courses")}
+                className="btn-outline text-base px-7 py-3.5"
+              >
+                <PlayIcon />
+                View Courses
+              </button>
             </div>
 
             {/* Social Proof */}

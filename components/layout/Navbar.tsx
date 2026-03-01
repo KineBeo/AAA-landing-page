@@ -2,7 +2,8 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
-import { useMemberstack } from "@/components/providers/MemberstackProvider";
+
+const LMS_URL = process.env.NEXT_PUBLIC_LMS_URL ?? "#";
 
 const NAV_LINKS = [
   { label: "Courses", href: "#courses" },
@@ -10,8 +11,6 @@ const NAV_LINKS = [
   { label: "Pricing", href: "#pricing" },
   { label: "FAQ", href: "#faq" },
 ];
-
-// ─── Icons ────────────────────────────────────────────────────────────────────
 
 function LogoIcon() {
   return (
@@ -35,12 +34,9 @@ function MenuIcon({ open }: { open: boolean }) {
   );
 }
 
-// ─── Component ────────────────────────────────────────────────────────────────
-
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const { member, isPaid, isLoading, openLogin, openSignup, logout } = useMemberstack();
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 20);
@@ -98,50 +94,17 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* Desktop Auth Buttons */}
+        {/* Desktop CTA */}
         <div className="hidden md:flex items-center gap-3">
-          {isLoading ? (
-            <div className="w-20 h-8 bg-sand-200 rounded-lg animate-pulse" />
-          ) : member ? (
-            <>
-              {isPaid ? (
-                <Link
-                  href="/dashboard"
-                  className="text-sm font-medium text-sand-600 hover:text-primary-600 transition-colors cursor-pointer px-3 py-2"
-                >
-                  Dashboard
-                </Link>
-              ) : (
-                <button
-                  onClick={openSignup}
-                  className="text-sm font-semibold text-accent-500 hover:text-accent-600 transition-colors cursor-pointer px-3 py-2"
-                >
-                  Upgrade to Pro
-                </button>
-              )}
-              <button
-                onClick={logout}
-                className="text-sm font-medium text-sand-500 hover:text-sand-800 transition-colors cursor-pointer px-3 py-2"
-              >
-                Log out
-              </button>
-            </>
-          ) : (
-            <>
-              <button
-                onClick={openLogin}
-                className="text-sm font-medium text-sand-600 hover:text-primary-600 transition-colors duration-200 cursor-pointer px-3 py-2"
-              >
-                Log in
-              </button>
-              <button
-                onClick={openSignup}
-                className="btn-primary text-sm px-5 py-2.5"
-              >
-                Join Free Session
-              </button>
-            </>
-          )}
+          <a
+            href={`${LMS_URL}/login`}
+            className="text-sm font-medium text-sand-600 hover:text-primary-600 transition-colors duration-200 cursor-pointer px-3 py-2"
+          >
+            Log in
+          </a>
+          <a href={`${LMS_URL}/signup`} className="btn-primary text-sm px-5 py-2.5">
+            Join Free Session
+          </a>
         </div>
 
         {/* Mobile Hamburger */}
@@ -171,51 +134,20 @@ export default function Navbar() {
             ))}
           </div>
           <div className="flex flex-col gap-2 border-t border-sand-200 pt-3">
-            {isLoading ? (
-              <div className="h-10 bg-sand-200 rounded-xl animate-pulse" />
-            ) : member ? (
-              <>
-                {isPaid && (
-                  <Link
-                    href="/dashboard"
-                    onClick={closeMobile}
-                    className="text-center text-sm font-semibold text-primary-600 border border-primary-200 px-5 py-2.5 rounded-xl hover:bg-primary-50 transition-colors cursor-pointer"
-
-                  >
-                    Dashboard
-                  </Link>
-                )}
-                {!isPaid && (
-                  <button
-                    onClick={() => { openSignup(); closeMobile(); }}
-                    className="btn-accent text-sm py-2.5"
-                  >
-                    Upgrade to Pro
-                  </button>
-                )}
-                <button
-                  onClick={() => { logout(); closeMobile(); }}
-                  className="text-center text-sm font-medium text-sand-500 hover:text-sand-800 py-2 cursor-pointer"
-                >
-                  Log out
-                </button>
-              </>
-            ) : (
-              <>
-                <button
-                  onClick={() => { openLogin(); closeMobile(); }}
-                  className="text-center text-sm font-medium text-sand-700 border border-sand-200 px-5 py-2.5 rounded-xl hover:bg-sand-100 transition-colors cursor-pointer"
-                >
-                  Log in
-                </button>
-                <button
-                  onClick={() => { openSignup(); closeMobile(); }}
-                  className="btn-primary text-sm py-2.5"
-                >
-                  Join Free Session
-                </button>
-              </>
-            )}
+            <a
+              href={`${LMS_URL}/login`}
+              onClick={closeMobile}
+              className="text-center text-sm font-medium text-sand-700 border border-sand-200 px-5 py-2.5 rounded-xl hover:bg-sand-100 transition-colors cursor-pointer"
+            >
+              Log in
+            </a>
+            <a
+              href={`${LMS_URL}/signup`}
+              onClick={closeMobile}
+              className="btn-primary text-sm py-2.5 text-center"
+            >
+              Join Free Session
+            </a>
           </div>
         </div>
       )}
